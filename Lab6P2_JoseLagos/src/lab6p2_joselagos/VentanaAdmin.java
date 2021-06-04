@@ -5,6 +5,9 @@
  */
 package lab6p2_joselagos;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author tonye
@@ -52,9 +55,36 @@ public class VentanaAdmin extends javax.swing.JFrame {
         rdb_Licenciatura = new javax.swing.JRadioButton();
         btn_AgregarDocente = new javax.swing.JButton();
         jd_CrearAlumno = new javax.swing.JDialog();
-        jf_CrearClase = new javax.swing.JDialog();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        tf_NombreAlumno = new javax.swing.JTextField();
+        tf_ApellidoAlumo = new javax.swing.JTextField();
+        js_EdadAlumno = new javax.swing.JSpinner();
+        tf_RegistroAlumno = new javax.swing.JFormattedTextField();
+        tf_ID = new javax.swing.JFormattedTextField();
+        tf_CarreraAlumno = new javax.swing.JTextField();
+        js_AñoCarrera = new javax.swing.JSpinner();
+        js_Promedio = new javax.swing.JSpinner();
+        rdb_SaludA = new javax.swing.JRadioButton();
+        rdb_IngenieriaA = new javax.swing.JRadioButton();
+        rdb_LicenciaturaA = new javax.swing.JRadioButton();
+        btn_AgregarAlumno = new javax.swing.JButton();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        tf_UserAlumno = new javax.swing.JTextField();
+        tf_PasswordAlumno = new javax.swing.JTextField();
+        jd_CrearClase = new javax.swing.JDialog();
         jd_CrearProyecto = new javax.swing.JDialog();
         Facultades = new javax.swing.ButtonGroup();
+        FacultadesA = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         btn_CrearDocente = new javax.swing.JButton();
@@ -64,6 +94,15 @@ public class VentanaAdmin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabla_Docentes = new javax.swing.JTable();
+        jPanel6 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabla_Alumno = new javax.swing.JTable();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -213,25 +252,195 @@ public class VentanaAdmin extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel12.setText("Crear Alumno");
+
+        jLabel13.setText("Nombre:");
+
+        jLabel14.setText("Apellido:");
+
+        jLabel15.setText("Edad:");
+
+        jLabel16.setText("Numero de registro:");
+
+        jLabel17.setText("ID:");
+
+        jLabel18.setText("Carrera de estudio:");
+
+        jLabel19.setText("Año de carrera:");
+
+        jLabel20.setText("Promedio de graduacion:");
+
+        jLabel21.setText("Facultad:");
+
+        js_EdadAlumno.setValue(20);
+
+        try {
+            tf_RegistroAlumno.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            tf_ID.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####-#####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        js_AñoCarrera.setValue(1);
+
+        js_Promedio.setValue(70);
+
+        FacultadesA.add(rdb_SaludA);
+        rdb_SaludA.setSelected(true);
+        rdb_SaludA.setText("Salud");
+
+        FacultadesA.add(rdb_IngenieriaA);
+        rdb_IngenieriaA.setText("Ingeniería");
+
+        FacultadesA.add(rdb_LicenciaturaA);
+        rdb_LicenciaturaA.setText("Licenciatura");
+
+        btn_AgregarAlumno.setText("Agregar");
+        btn_AgregarAlumno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_AgregarAlumnoMouseClicked(evt);
+            }
+        });
+
+        jLabel22.setText("Nombre de usuario:");
+
+        jLabel23.setText("Contraseña");
+
         javax.swing.GroupLayout jd_CrearAlumnoLayout = new javax.swing.GroupLayout(jd_CrearAlumno.getContentPane());
         jd_CrearAlumno.getContentPane().setLayout(jd_CrearAlumnoLayout);
         jd_CrearAlumnoLayout.setHorizontalGroup(
             jd_CrearAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jd_CrearAlumnoLayout.createSequentialGroup()
+                .addGap(241, 241, 241)
+                .addComponent(jLabel12)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jd_CrearAlumnoLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addGroup(jd_CrearAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_CrearAlumnoLayout.createSequentialGroup()
+                        .addGroup(jd_CrearAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel21)
+                            .addGroup(jd_CrearAlumnoLayout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(rdb_SaludA)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rdb_IngenieriaA)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rdb_LicenciaturaA)
+                                .addGap(84, 84, 84)
+                                .addComponent(btn_AgregarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jd_CrearAlumnoLayout.createSequentialGroup()
+                        .addGroup(jd_CrearAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_CrearAlumnoLayout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_NombreAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_CrearAlumnoLayout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_CrearAlumnoLayout.createSequentialGroup()
+                                .addGroup(jd_CrearAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(jd_CrearAlumnoLayout.createSequentialGroup()
+                                        .addComponent(jLabel15)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(js_EdadAlumno))
+                                    .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(js_AñoCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_CrearAlumnoLayout.createSequentialGroup()
+                                .addComponent(jLabel22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_UserAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                        .addGroup(jd_CrearAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_CrearAlumnoLayout.createSequentialGroup()
+                                .addComponent(jLabel20)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(js_Promedio, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_CrearAlumnoLayout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_ApellidoAlumo, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_CrearAlumnoLayout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_RegistroAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_CrearAlumnoLayout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_CarreraAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_CrearAlumnoLayout.createSequentialGroup()
+                                .addComponent(jLabel23)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tf_PasswordAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(41, 41, 41))))
         );
         jd_CrearAlumnoLayout.setVerticalGroup(
             jd_CrearAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jd_CrearAlumnoLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabel12)
+                .addGap(43, 43, 43)
+                .addGroup(jd_CrearAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel14)
+                    .addComponent(tf_NombreAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_ApellidoAlumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(jd_CrearAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel16)
+                    .addComponent(js_EdadAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_RegistroAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(jd_CrearAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel18)
+                    .addComponent(tf_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_CarreraAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(jd_CrearAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel20)
+                    .addComponent(js_AñoCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(js_Promedio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(jd_CrearAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(jLabel23)
+                    .addComponent(tf_UserAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_PasswordAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGroup(jd_CrearAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_CrearAlumnoLayout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addGap(18, 18, 18)
+                        .addGroup(jd_CrearAlumnoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rdb_SaludA)
+                            .addComponent(rdb_IngenieriaA)
+                            .addComponent(rdb_LicenciaturaA)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_CrearAlumnoLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(btn_AgregarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(27, 27, 27))
         );
 
-        javax.swing.GroupLayout jf_CrearClaseLayout = new javax.swing.GroupLayout(jf_CrearClase.getContentPane());
-        jf_CrearClase.getContentPane().setLayout(jf_CrearClaseLayout);
-        jf_CrearClaseLayout.setHorizontalGroup(
-            jf_CrearClaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jd_CrearClaseLayout = new javax.swing.GroupLayout(jd_CrearClase.getContentPane());
+        jd_CrearClase.getContentPane().setLayout(jd_CrearClaseLayout);
+        jd_CrearClaseLayout.setHorizontalGroup(
+            jd_CrearClaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 400, Short.MAX_VALUE)
         );
-        jf_CrearClaseLayout.setVerticalGroup(
-            jf_CrearClaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jd_CrearClaseLayout.setVerticalGroup(
+            jd_CrearClaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
@@ -254,11 +463,24 @@ public class VentanaAdmin extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_CrearDocenteMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_CrearDocenteMouseEntered(evt);
+            }
         });
 
         btn_CrearAlumno.setText("Crear Alumno");
+        btn_CrearAlumno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_CrearAlumnoMouseClicked(evt);
+            }
+        });
 
         btn_CrearClase.setText("Crear Clase");
+        btn_CrearClase.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_CrearClaseMouseClicked(evt);
+            }
+        });
         btn_CrearClase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_CrearClaseActionPerformed(evt);
@@ -266,6 +488,11 @@ public class VentanaAdmin extends javax.swing.JFrame {
         });
 
         btn_CrearProyecto.setText("Crear Proyecto");
+        btn_CrearProyecto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_CrearProyectoMouseClicked(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Crear");
@@ -295,7 +522,7 @@ public class VentanaAdmin extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_CrearDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_CrearAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -316,20 +543,122 @@ public class VentanaAdmin extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 515, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Modificar", jPanel2);
+
+        tabla_Docentes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Apellido", "Numero de Registro", "Facultad", "Titulo", "Postgrado"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tabla_Docentes);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE)
+        );
+
+        jTabbedPane2.addTab("Docentes", jPanel5);
+
+        tabla_Alumno.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Apellido", "Registro", "Edad", "Facultad", "Año", "Carrera"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tabla_Alumno);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE)
+        );
+
+        jTabbedPane2.addTab("Alumnos", jPanel6);
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 784, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 485, Short.MAX_VALUE)
+        );
+
+        jTabbedPane2.addTab("Clases", jPanel7);
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 784, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 485, Short.MAX_VALUE)
+        );
+
+        jTabbedPane2.addTab("Proyectos", jPanel8);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 789, Short.MAX_VALUE)
+            .addComponent(jTabbedPane2)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addComponent(jTabbedPane2)
         );
 
         jTabbedPane1.addTab("Listar", jPanel3);
@@ -342,7 +671,7 @@ public class VentanaAdmin extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 515, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Eliminar", jPanel4);
@@ -402,6 +731,12 @@ public class VentanaAdmin extends javax.swing.JFrame {
             admin.getDocente().add(docente);
             admin.crearArchivoDocente();
 
+            //agregar a la tabla
+            Object[] newrow = {docente.getNombre(), docente.getApellido(), docente.getRegistro(), docente.getFacultad(), docente.getTitulo_u(), docente.getTitulo_p()};
+            DefaultTableModel mod = (DefaultTableModel) tabla_Docentes.getModel();
+            mod.addRow(newrow);
+            tabla_Docentes.setModel(mod);
+
             tf_NombreDocente.setText("");
             tf_ApellidoDocente.setText("");
             tf_ContraDocente.setText("");
@@ -414,6 +749,7 @@ public class VentanaAdmin extends javax.swing.JFrame {
             rdb_Licenciatura.setSelected(false);
             rdb_Ingenieria.setSelected(false);
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(jd_CrearDocente, "Ha ocurrido un error, el usuario no se ha guardado");
         }
 
 
@@ -421,7 +757,74 @@ public class VentanaAdmin extends javax.swing.JFrame {
 
     private void btn_CrearDocenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CrearDocenteMouseClicked
         CrearDocente();
+
     }//GEN-LAST:event_btn_CrearDocenteMouseClicked
+
+    private void btn_CrearDocenteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CrearDocenteMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_CrearDocenteMouseEntered
+
+    private void btn_CrearAlumnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CrearAlumnoMouseClicked
+        CrearAlumno();
+    }//GEN-LAST:event_btn_CrearAlumnoMouseClicked
+
+    private void btn_CrearClaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CrearClaseMouseClicked
+        CrearClase();
+    }//GEN-LAST:event_btn_CrearClaseMouseClicked
+
+    private void btn_CrearProyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CrearProyectoMouseClicked
+        CrearProyecto();
+    }//GEN-LAST:event_btn_CrearProyectoMouseClicked
+
+    private void btn_AgregarAlumnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AgregarAlumnoMouseClicked
+        String nombre;
+        String apellido;
+        int edad;
+        int registro;
+        String ID;
+        String carrera;
+        int año_carrera;
+        int promedio;
+        String facultad = "";
+
+        String user;
+        String password;
+
+        try {
+            nombre = tf_NombreAlumno.getText();
+            apellido = tf_ApellidoAlumo.getText();
+            edad = (Integer) js_EdadAlumno.getValue();
+            registro = Integer.parseInt(tf_RegistroAlumno.getText());
+            ID = tf_ID.getText();
+            carrera = tf_CarreraAlumno.getText();
+            año_carrera = (Integer) js_AñoCarrera.getValue();
+            promedio = (Integer) js_Promedio.getValue();
+            
+            if (rdb_SaludA.isSelected()) {
+                facultad += "Salud";
+            } else if (rdb_IngenieriaA.isSelected()) {
+                facultad += "Ingeniería";
+            } else if (rdb_LicenciaturaA.isSelected()) {
+                facultad += "Licenciatura";
+            }
+            
+            user = tf_UserAlumno.getText();
+            password = tf_PasswordAlumno.getText();
+            
+            Administrador admin = new Administrador("./Alumno.txt");
+            admin.cargarArchivoAlumno();
+            
+            Alumnos alumno = new Alumnos(nombre, apellido, edad, registro, ID, carrera, año_carrera, promedio, facultad, user, password);
+            admin.getAlumnos().add(alumno);
+            admin.crearArchivoAlumno();
+            
+            Object
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(jd_CrearAlumno, "Ha ocurrido un error al crear el alumno");
+        }
+
+    }//GEN-LAST:event_btn_AgregarAlumnoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -465,8 +868,34 @@ public class VentanaAdmin extends javax.swing.JFrame {
 
         jd_CrearDocente.setVisible(true);
     }
+
+    private void CrearAlumno() {
+        jd_CrearAlumno.setModal(true);//bloquea el fondo
+        jd_CrearAlumno.pack();//permite ampliar el tamaño de la ventana
+        jd_CrearAlumno.setLocationRelativeTo(null);
+
+        jd_CrearAlumno.setVisible(true);
+    }
+
+    private void CrearProyecto() {
+        jd_CrearProyecto.setModal(true);//bloquea el fondo
+        jd_CrearProyecto.pack();//permite ampliar el tamaño de la ventana
+        jd_CrearProyecto.setLocationRelativeTo(null);
+
+        jd_CrearProyecto.setVisible(true);
+    }
+
+    private void CrearClase() {
+        jd_CrearClase.setModal(true);//bloquea el fondo
+        jd_CrearClase.pack();//permite ampliar el tamaño de la ventana
+        jd_CrearClase.setLocationRelativeTo(null);
+
+        jd_CrearClase.setVisible(true);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Facultades;
+    private javax.swing.ButtonGroup FacultadesA;
+    private javax.swing.JButton btn_AgregarAlumno;
     private javax.swing.JButton btn_AgregarDocente;
     private javax.swing.JButton btn_CrearAlumno;
     private javax.swing.JButton btn_CrearClase;
@@ -475,7 +904,19 @@ public class VentanaAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -487,21 +928,43 @@ public class VentanaAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JDialog jd_CrearAlumno;
+    private javax.swing.JDialog jd_CrearClase;
     private javax.swing.JDialog jd_CrearDocente;
     private javax.swing.JDialog jd_CrearProyecto;
-    private javax.swing.JDialog jf_CrearClase;
+    private javax.swing.JSpinner js_AñoCarrera;
+    private javax.swing.JSpinner js_EdadAlumno;
     private javax.swing.JSpinner js_ImpClase;
+    private javax.swing.JSpinner js_Promedio;
     private javax.swing.JRadioButton rdb_Ingenieria;
+    private javax.swing.JRadioButton rdb_IngenieriaA;
     private javax.swing.JRadioButton rdb_Licenciatura;
+    private javax.swing.JRadioButton rdb_LicenciaturaA;
     private javax.swing.JRadioButton rdb_Salud;
+    private javax.swing.JRadioButton rdb_SaludA;
+    private javax.swing.JTable tabla_Alumno;
+    private javax.swing.JTable tabla_Docentes;
+    private javax.swing.JTextField tf_ApellidoAlumo;
     private javax.swing.JTextField tf_ApellidoDocente;
+    private javax.swing.JTextField tf_CarreraAlumno;
     private javax.swing.JTextField tf_ContraDocente;
+    private javax.swing.JFormattedTextField tf_ID;
+    private javax.swing.JTextField tf_NombreAlumno;
     private javax.swing.JTextField tf_NombreDocente;
     private javax.swing.JFormattedTextField tf_NumeroDocente;
+    private javax.swing.JTextField tf_PasswordAlumno;
+    private javax.swing.JFormattedTextField tf_RegistroAlumno;
     private javax.swing.JTextField tf_Titulo_P;
     private javax.swing.JTextField tf_Titulo_U;
+    private javax.swing.JTextField tf_UserAlumno;
     private javax.swing.JTextField tf_UserDocente;
     // End of variables declaration//GEN-END:variables
 }
