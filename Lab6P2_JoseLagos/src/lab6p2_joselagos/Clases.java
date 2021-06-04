@@ -8,9 +8,7 @@ public class Clases {
     private String codigo_carrera;
     private int alumnos;
     private int aula;
-    
-    private String user;
-    private String password;
+
     
     private ArrayList proyectos = new ArrayList();
     private ArrayList alumnos_m = new ArrayList();
@@ -24,16 +22,6 @@ public class Clases {
         this.codigo_carrera = codigo_carrera;
         this.alumnos = alumnos;
         this.aula = aula;
-    }
-
-    public Clases(String nombre, String seccion, String codigo_carrera, int alumnos, int aula, String user, String password) {
-        this.nombre = nombre;
-        this.seccion = seccion;
-        this.codigo_carrera = codigo_carrera;
-        this.alumnos = alumnos;
-        this.aula = aula;
-        this.user = user;
-        this.password = password;
     }
 
     public String getNombre() {
@@ -74,22 +62,6 @@ public class Clases {
 
     public void setAula(int aula) {
         this.aula = aula;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public ArrayList getProyectos() {

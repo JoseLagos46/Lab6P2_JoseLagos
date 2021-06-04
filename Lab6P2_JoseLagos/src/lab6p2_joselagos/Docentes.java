@@ -10,6 +10,7 @@ public class Docentes {
     private String titulo_p;
     private int imp_clase;
     private String facultad;
+    
     private ArrayList proyectos = new ArrayList();
     
     private String user;

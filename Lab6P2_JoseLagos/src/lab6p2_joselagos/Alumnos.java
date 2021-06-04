@@ -10,7 +10,9 @@ public class Alumnos {
     private int año_carrera;
     private int promedio;
     private String facultad;
-
+    
+    private String user;
+    private String password;
     public Alumnos() {
     }
 
@@ -26,6 +28,37 @@ public class Alumnos {
         this.facultad = facultad;
     }
 
+    public Alumnos(String nombre, String apellido, int edad, int registro, String ID, String carrera, int año_carrera, int promedio, String facultad, String user, String password) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.registro = registro;
+        this.ID = ID;
+        this.carrera = carrera;
+        this.año_carrera = año_carrera;
+        this.promedio = promedio;
+        this.facultad = facultad;
+        this.user = user;
+        this.password = password;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    
     public String getNombre() {
         return nombre;
     }
