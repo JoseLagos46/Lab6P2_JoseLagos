@@ -164,6 +164,7 @@ public class Administrador {
             for (Clases c : clases) {
                 RAM.write(c.getNombre() + ";");
                 RAM.write(c.getSeccion() + ";");
+                RAM.write(c.getCodigo()+";");
                 RAM.write(c.getCodigo_carrera() + ";");
                 RAM.write(c.getAlumnos() + ";");
                 RAM.write(c.getAula() + ";");
@@ -246,7 +247,7 @@ public class Administrador {
                 leer = new Scanner(archivo);
                 leer.useDelimiter(";");
                 while (leer.hasNext()) {
-                    clases.add(new Clases(leer.next(), leer.next(), leer.next(), leer.nextInt(), leer.nextInt()));
+                    clases.add(new Clases(leer.next(), leer.next(), leer.next(),leer.next(), leer.nextInt(), leer.nextInt()));
                 }
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Ha Ocurrido un Error al cargar el archivo");

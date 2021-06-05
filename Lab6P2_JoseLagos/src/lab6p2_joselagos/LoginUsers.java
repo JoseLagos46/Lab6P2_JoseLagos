@@ -5,6 +5,8 @@
  */
 package lab6p2_joselagos;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author tonye
@@ -40,7 +42,6 @@ public class LoginUsers extends javax.swing.JFrame {
         tf_UserDocente = new javax.swing.JTextField();
         tp_PasswordDocente = new javax.swing.JPasswordField();
         btn_IngresarDocente = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btn_AccesoAlumno = new javax.swing.JButton();
         btn_AccesoDocente = new javax.swing.JButton();
@@ -50,6 +51,11 @@ public class LoginUsers extends javax.swing.JFrame {
         jLabel3.setText("Ingrese contraseña:");
 
         jButton1.setText("Ingresar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_AlumnoLayout = new javax.swing.GroupLayout(jd_Alumno.getContentPane());
         jd_Alumno.getContentPane().setLayout(jd_AlumnoLayout);
@@ -91,6 +97,11 @@ public class LoginUsers extends javax.swing.JFrame {
         jLabel5.setText("Ingrese contraseña");
 
         btn_IngresarDocente.setText("Ingresar");
+        btn_IngresarDocente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_IngresarDocenteMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_DocenteLayout = new javax.swing.GroupLayout(jd_Docente.getContentPane());
         jd_Docente.getContentPane().setLayout(jd_DocenteLayout);
@@ -127,16 +138,30 @@ public class LoginUsers extends javax.swing.JFrame {
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
-        jTextField1.setText("jTextField1");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Usuarios");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Seleccione el tipo de usuario");
 
         btn_AccesoAlumno.setText("Alumno");
+        btn_AccesoAlumno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_AccesoAlumnoMouseClicked(evt);
+            }
+        });
+        btn_AccesoAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_AccesoAlumnoActionPerformed(evt);
+            }
+        });
 
         btn_AccesoDocente.setText("Docente");
+        btn_AccesoDocente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_AccesoDocenteMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -168,6 +193,74 @@ public class LoginUsers extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_AccesoAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AccesoAlumnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_AccesoAlumnoActionPerformed
+
+    private void btn_AccesoAlumnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AccesoAlumnoMouseClicked
+        AlumnosLogin();
+
+    }//GEN-LAST:event_btn_AccesoAlumnoMouseClicked
+
+    private void btn_AccesoDocenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_AccesoDocenteMouseClicked
+        DocentesLogin();
+    }//GEN-LAST:event_btn_AccesoDocenteMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        String user = tf_UserAlumnos.getText();
+        String clave = tp_PasswordAlumnos.getText();
+        String usuario = "";
+        String password = "";
+        int flag = 0;
+        Administrador admin = new Administrador("./Alumnos.txt");
+        admin.cargarArchivoAlumno();
+
+        for (int i = 0; i < admin.getAlumnos().size(); i++) {
+            for (Alumnos alumno : admin.getAlumnos()) {
+                user += admin.getAlumnos().get(i).getUser();
+                password += admin.getAlumnos().get(i).getPassword();
+
+                if (user.equals(usuario) && clave.equals(password)) {
+                    this.dispose();
+                    AlumnosMenu menu = new AlumnosMenu();
+                    menu.setVisible(true);
+                    flag++;
+                }
+            }
+        }
+        if(flag == 0){
+            JOptionPane.showMessageDialog(jd_Alumno,"El usuario ingresado no existe");
+        }
+
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void btn_IngresarDocenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_IngresarDocenteMouseClicked
+        String user = tf_UserDocente.getText();
+        String clave = tp_PasswordDocente.getText();
+        String usuario = "";
+        String password = "";
+        int flag = 0;
+        Administrador admin = new Administrador("./Docente.txt");
+        admin.cargarArchivoAlumno();
+
+        for (int i = 0; i < admin.getDocente().size(); i++) {
+            for (Docentes docente : admin.getDocente()) {
+                user += admin.getDocente().get(i).getUser();
+                password += admin.getDocente().get(i).getPassword();
+
+                if (user.equals(usuario) && clave.equals(password)) {
+                    this.dispose();
+                    DocentesMenu menu = new DocentesMenu();
+                    menu.setVisible(true);
+                    flag++;
+                }
+            }
+        }
+        if(flag == 0){
+            JOptionPane.showMessageDialog(jd_Alumno,"El usuario ingresado no existe");
+        }
+    }//GEN-LAST:event_btn_IngresarDocenteMouseClicked
 
     /**
      * @param args the command line arguments
@@ -204,6 +297,21 @@ public class LoginUsers extends javax.swing.JFrame {
         });
     }
 
+    private void AlumnosLogin() {
+        jd_Alumno.setModal(true);//bloquea el fondo
+        jd_Alumno.pack();//permite ampliar el tamaño de la ventana
+        jd_Alumno.setLocationRelativeTo(null);
+
+        jd_Alumno.setVisible(true);
+    }
+
+    private void DocentesLogin() {
+        jd_Docente.setModal(true);//bloquea el fondo
+        jd_Docente.pack();//permite ampliar el tamaño de la ventana
+        jd_Docente.setLocationRelativeTo(null);
+
+        jd_Docente.setVisible(true);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_AccesoAlumno;
     private javax.swing.JButton btn_AccesoDocente;
@@ -214,7 +322,6 @@ public class LoginUsers extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JDialog jd_Alumno;
     private javax.swing.JDialog jd_Docente;
     private javax.swing.JTextField tf_UserAlumnos;

@@ -6,6 +6,7 @@ public class Clases {
     private String nombre;
     private String seccion;
     private String codigo_carrera;
+    private String codigo;
     private int alumnos;
     private int aula;
 
@@ -16,12 +17,21 @@ public class Clases {
     public Clases() {
     }
 
-    public Clases(String nombre, String seccion, String codigo_carrera, int alumnos, int aula) {
+    public Clases(String nombre, String seccion, String codigo, String codigo_carrera, int alumnos, int aula) {
         this.nombre = nombre;
         this.seccion = seccion;
         this.codigo_carrera = codigo_carrera;
         this.alumnos = alumnos;
         this.aula = aula;
+        this.codigo = codigo;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
     public String getNombre() {

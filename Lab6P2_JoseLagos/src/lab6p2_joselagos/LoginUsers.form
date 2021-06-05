@@ -67,6 +67,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ingresar"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -135,17 +138,16 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ingresar"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_IngresarDocenteMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JTextField" name="jTextField1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
-    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="Usuarios"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -211,11 +213,18 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Alumno"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_AccesoAlumnoMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_AccesoAlumnoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_AccesoDocente">
       <Properties>
         <Property name="text" type="java.lang.String" value="Docente"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_AccesoDocenteMouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
